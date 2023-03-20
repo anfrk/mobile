@@ -1,0 +1,52 @@
+package mobile_example;
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.*;
+
+public class button extends JFrame{
+	
+	public button() {
+		setTitle("이벤트 예제");
+		setSize(500,300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(null);
+		
+		
+		JButton yellow = new JButton("노란색");
+		JButton pink = new JButton("핑크색");
+		
+		yellow.setLocation(145,10);
+		yellow.setSize(100,50);
+		c.add(yellow);
+		yellow.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				c.setBackground(Color.YELLOW);
+			}
+		});
+		
+		pink.setLocation(255, 10);
+		pink.setSize(100, 50);
+		c.add(pink);
+		pink.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				c.setBackground(Color.PINK);
+			}
+		});
+		
+	}
+
+	public static void main(String[] args) {
+		new button();
+
+	}
+
+}

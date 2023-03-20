@@ -1,0 +1,99 @@
+package mobile_example;
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.*;
+
+public class game extends JFrame{
+	
+	public game() {
+		int a;
+		a = (int) (Math.random()*2);
+		setTitle("가위, 바위, 보");
+		setSize(500,200);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container c = getContentPane();
+		c.setLayout(null);
+		
+		JLabel insert = new JLabel("아래의 버튼 중에서 하나를 클릭하시오!");
+		JLabel result = new JLabel();
+		JButton sissor = new JButton("0:가위");
+		JButton rock = new JButton("1:바위");
+		JButton paper = new JButton("2:보");
+		
+		result.setLocation(0, 100);
+		result.setSize(400, 50);
+		c.add(result);
+		
+		insert.setLocation(0,0);
+		insert.setSize(400, 50);
+		c.add(insert);
+		
+		sissor.setLocation(80,50);
+		sissor.setSize(100,50);
+		c.add(sissor);
+		sissor.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(a==0) {
+					result.setText("인간:0 컴퓨터:0 비겼습니다.");
+				}
+				else if(a==1) {
+					result.setText("인간:0 컴퓨터:1 컴퓨터 승리.");
+				}
+				else
+					result.setText("인간:0 컴퓨터:2 인간 승리.");
+			}
+		});
+		
+		rock.setLocation(190, 50);
+		rock.setSize(100, 50);
+		c.add(rock);
+		rock.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(a==0) {
+					result.setText("인간:1 컴퓨터:0 인간승리.");
+				}
+				else if(a==1) {
+					result.setText("인간:1 컴퓨터:1 비겼습니다.");
+				}
+				else
+					result.setText("인간:1 컴퓨터:2 컴퓨터 승리.");
+			
+			}
+		});
+		
+		paper.setLocation(300, 50);
+		paper.setSize(100, 50);
+		c.add(paper);
+		paper.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(a==0) {
+					result.setText("인간:2 컴퓨터:0 컴퓨터 승리.");
+				}
+				else if(a==1) {
+					result.setText("인간:2 컴퓨터:1 인간승리.");
+				}
+				else
+					result.setText("인간:2 컴퓨터:2 비겼습니다.");
+			
+				
+			}
+		});
+	}
+		
+
+	public static void main(String[] args) {
+		new game();
+
+	}
+
+}
